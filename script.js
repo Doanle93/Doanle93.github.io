@@ -37,6 +37,12 @@ function updateRightTOC(pageElement) {
         const a = document.createElement('a');
         a.href = `#${heading.id}`;
         a.textContent = heading.textContent;
+
+        if (heading.tagName.toLowerCase() === 'h2') {
+            li.classList.add('toc-subsection');
+        } else {
+            li.classList.add('toc-mainsection');
+        }
         
         li.appendChild(a);
         tocList.appendChild(li);
