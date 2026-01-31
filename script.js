@@ -1,4 +1,13 @@
 document.querySelectorAll('.nav-link').forEach(link => {
+
+    // 1. Handle Submenu Toggling
+    // const projectToggle = document.querySelector('.submenu-toggle');
+    // projectToggle.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     projectToggle.parentElement.classList.toggle('open');
+    // });
+
+    // 2. Handle Navigation & Content Swapping
     link.addEventListener('click', function(e) {
         e.preventDefault();
         
