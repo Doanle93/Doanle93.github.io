@@ -10,66 +10,58 @@ document.querySelectorAll('.nav-link').forEach(link => {
     // 2. Handle Navigation & Content Swapping
     link.addEventListener('click', function(e) {
         e.preventDefault();
-        projectToggle.parentElement.classList.toggle('open');
-    });
-
-    // 2. Handle Navigation & Content Swapping
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('data-target');
-            
-            // Hide all content views
-            document.querySelectorAll('.content-view').forEach(view => {
-                view.style.display = 'none';
-                view.classList.remove('active');
-            });
-            
-            // Show target content view
-            const activePage = document.getElementById(targetId);
-            if (activePage) {
-                activePage.style.display = 'block';
-                activePage.classList.add('active');
-                
-                // Update the Right Table of Contents
-                updateRightTOC(activePage);
-            }
-        });
-    });
-
-    // Function to build the Right Sidebar TOC
-    function updateRightTOC(pageElement) {
-        const tocList = document.getElementById('section-toc');
-        tocList.innerHTML = ''; 
-
-        const headings = pageElement.querySelectorAll('h1, h2');
         
-        headings.forEach(heading => {
-            if (!heading.id) {
-                heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
-            }
-
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = `#${heading.id}`;
-            a.textContent = heading.textContent;
-            
-            // Indent h2 elements
-            if (heading.tagName.toLowerCase() === 'h2') {
-                li.style.paddingLeft = "15px";
-                li.style.fontSize = "0.9em";
-            }
-
-            li.appendChild(a);
-            tocList.appendChild(li);
+        // 1. Get the target ID (e.g., 'about-page')
+        const targetId = this.getAttribute('data-target');
+        
+        // 2. Hide all pages and show the target page
+        document.querySelectorAll('.content-view').forEach(view => {
+            view.classList.remove('active');
+            view.style.display = 'none';
         });
-    }
+        
+        const activePage = document.getElementById(targetId);
+        activePage.classList.add('active');
+        activePage.style.display = 'block';
 
-    // Initialize first view
-    const initialPage = document.getElementById('about-page');
-    initialPage.style.display = 'block';
-    updateRightTOC(initialPage);
+        // 3. Update the Right Table of Contents
+        updateRightTOC(activePage);
+    });
 });
+
+function updateRightTOC(pageElement) {
+    const tocList = document.getElementById('section-toc');
+    tocList.innerHTML = ''; // Clear existing list
+
+    // Find all <h1> and <h2> inside the active page
+    const headings = pageElement.querySelectorAll('h1, h2');
+    
+    headings.forEach(heading => {
+        // Ensure the heading has an ID so we can link to it
+        if (!heading.id) {
+            heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase();
+        }
+
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
+
+        if (heading.tagName.toLowerCase() === 'h2') {
+            li.classList.add('toc-subsection');
+        } else {
+            li.classList.add('toc-mainsection');
+        }
+        
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+}
+
+// Initialize the first page (About Me) on load
+window.onload = () => {
+    const defaultPage = document.getElementById('about-page');
+    defaultPage.classList.add('active');
+    defaultPage.style.display = 'block';
+    updateRightTOC(defaultPage);
+};
