@@ -44,3 +44,49 @@ body {
 .main-content {
     line-height: 1.6;
 }
+
+/* Hide sections by default unless they have the 'active' class */
+.content-view {
+    display: none;
+}
+
+.content-view.active {
+    display: block;
+}
+
+/* Right Sidebar List Styling */
+#section-toc {
+    list-style: none;
+    padding-left: 0;
+}
+
+#section-toc li {
+    margin-bottom: 8px;
+}
+
+#section-toc li a {
+    text-decoration: none;
+    color: #444;
+}
+
+#section-toc li a:hover {
+    color: #007bff;
+}
+
+/* Indentation for Subsections */
+.toc-subsection {
+    padding-left: 15px; /* Pushes the text to the right */
+    font-size: 0.85em;   /* Makes it slightly smaller */
+    border-left: 2px solid #eee;
+}
+
+.toc-mainsection {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* Optional: Smooth scroll for the right TOC links */
+html {
+    scroll-behavior: smooth;
+}
