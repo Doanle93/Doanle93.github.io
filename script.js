@@ -1,25 +1,3 @@
-// document.querySelectorAll('.nav-link').forEach(link => {
-//     link.addEventListener('click', function(e) {
-//         e.preventDefault();
-        
-//         // 1. Get the target ID (e.g., 'about-page')
-//         const targetId = this.getAttribute('data-target');
-        
-//         // 2. Hide all pages and show the target page
-//         document.querySelectorAll('.content-view').forEach(view => {
-//             view.classList.remove('active');
-//             view.style.display = 'none';
-//         });
-        
-//         const activePage = document.getElementById(targetId);
-//         activePage.classList.add('active');
-//         activePage.style.display = 'block';
-
-//         // 3. Update the Right Table of Contents
-//         updateRightTOC(activePage);
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Handle Submenu Toggling
