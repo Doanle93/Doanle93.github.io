@@ -15,7 +15,14 @@
             <h3>TOC</h3>
             <ul>
                 <li><a href="#" class="nav-link" data-target="about-page">About Me</a></li>
-                <li><a href="#" class="nav-link" data-target="projects-page">Blog</a></li>
+                <li><a href="#" class="nav-link" data-target="projects-page">Blog</a>
+
+                    <ul class="submenu" id="projects-menu">
+                    <li><a href="#" class="nav-link" data-target="integrated-photonics">Integrated Photonics</a></li>
+                    <li><a href="#" class="nav-link" data-target="circuit-design">Circuit Design</a></li>
+                    </ul>
+
+                </li>
             </ul>
         </nav>
     </aside>
@@ -36,38 +43,44 @@
             </section>
         </div>
 
-        <div id="projects-page" class="content-view" style="display:none;">
-            <section id="passive-devices">
+        <div id="integrated-photonics" class="content-view">
                 <h1>Integrated photonic components</h1>
                 <p>Write something here.</p>
 
-                <div id = "Coupler" class = "sub-section">
-                    <h2>Coupler</h2>
-                    <p>Write something here.</p>
-                </div>
-
-                <div id = "Mach-Zehnder" class = "sub-section">
-                    <h2>Mach-Zehnder interferometer</h2>
-                    <p>Write something here.</p>
-                </div>
-
-            </section>
-
-            <section id="active-devices">
+                <section id = "Coupler">
+                    <div id = "Coupler" class = "sub-section">
+                        <h2>Coupler</h2>
+                        <p>Write something here.</p>
+                    </div>
+                </section>
+                
+                <section id = "Mach-Zehnder">
+                    <div id = "Mach-Zehnder" class = "sub-section">
+                        <h2>Mach-Zehnder interferometer</h2>
+                        <p>Write something here.</p>
+                    </div>
+                </section>
+        </div>
+        
+        <div id="circuit-design" class="content-view">
                 <h1>Photonic circuit design</h1>
                 <p>Write something here.</p>
 
-                <div id = "Cascaded-MZI" class = "sub-section">
+                <section id = "Cascaded-MZI"></section>
+                
                     <h2>Cascaded MZI filter</h2>
                     <p>Write something here.</p>
-                </div>
-                <div id = "Cascaded-Elliptical-Ring" class = "sub-section">
+                </section>
+                
+                <section id = "Cascaded-Elliptical-Ring">
+                    
                     <h2>Cascaded elliptical ring resonator</h2>
                     <p>Write something here.</p>
-                </div>
-
+                
+                </section>
             </section>
         </div>
+
     </main>
 
     <aside class="right-sidebar">

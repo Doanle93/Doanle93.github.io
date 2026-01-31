@@ -85,7 +85,30 @@ body {
     margin-top: 10px;
 }
 
+/* Submenu styling */
+.submenu {
+    display: none; /* Hidden by default */
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
 
+.submenu li {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/* Show submenu when parent has 'open' class */
+.has-submenu.open .submenu {
+    display: block;
+}
+
+.submenu-toggle {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
 /* Optional: Smooth scroll for the right TOC links */
 html {
     scroll-behavior: smooth;
